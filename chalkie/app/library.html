@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My resources - Chalkie AI</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%230e7c5a'/><text y='72' x='50' font-size='62' text-anchor='middle' font-family='sans-serif' font-weight='bold' fill='white'>C</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <a class="logo" href="index.html"><span class="logo-mark">C</span> Chalkie</a>
+    </div>
+    <a class="btn btn--primary btn--block" href="create.html" style="margin-bottom:18px">&#43;&nbsp; Create new</a>
+    <nav>
+      <ul class="side-nav">
+        <li><a href="index.html"><span class="ico">▦</span>Dashboard</a></li>
+        <li><a href="create.html"><span class="ico">✦</span>Create</a></li>
+        <li><a class="is-active" href="library.html"><span class="ico">☰</span>My resources</a></li>
+      </ul>
+      <div class="side-label">Explore</div>
+      <ul class="side-nav">
+        <li><a href="library.html"><span class="ico">◱</span>Resource library</a></li>
+        <li><a href="library.html"><span class="ico">◑</span>Themes</a></li>
+        <li><a href="library.html"><span class="ico">⚙</span>Settings</a></li>
+      </ul>
+    </nav>
+    <div class="usage">
+      <div class="usage-top">Free plan <span>3 / 5 used</span></div>
+      <div class="meter"><i style="width:60%"></i></div>
+      <p>2 resource generations left this week. Resets on Monday.</p>
+      <a class="btn btn--sm" href="../pricing.html">Upgrade to Pro</a>
+    </div>
+    <div class="side-user">
+      <span class="avatar" style="background:#6c5ce7">AM</span>
+      <span><b>Alex Morgan</b><small>Year 8 &middot; Science</small></span>
+    </div>
+  </aside>
+  <div class="main">
+    <header class="topbar">
+      <h1>My resources</h1>
+      
+      <div class="search"><span>&#9906;</span><input type="search" placeholder="Search your resources" aria-label="Search your resources"></div>
+      <div class="topbar-actions"><a class="btn btn--sm btn--primary" href="create.html">&#43; Create new</a><span class="avatar" style="background:#6c5ce7">AM</span></div>
+    </header>
+    <main class="content">
+      <div class="page-head">
+        <h1>My resources</h1>
+        <p>Everything you've created with Chalkie. Open any resource to edit or export it.</p>
+      </div>
+
+      <div class="filters">
+        <button class="is-active" data-filter="all">All</button>
+        <button data-filter="lesson">Lessons</button>
+        <button data-filter="series">Lesson series</button>
+        <button data-filter="worksheet">Worksheets</button>
+        <button data-filter="activity">Activities</button>
+        <button data-filter="rubric">Rubrics</button>
+      </div>
+
+      <div class="grid grid-4">
+        <article class="res-card" data-type="lesson">
+          <div class="res-thumb" style="background:linear-gradient(135deg,var(--brand-tint),var(--accent-soft))"><b>The Water Cycle</b><i></i><i></i><i></i></div>
+          <div class="res-card-body">
+            <h3>The Water Cycle</h3>
+            <small>9 slides &middot; Year 8 Science &middot; edited 4 min ago</small>
+            <div class="res-card-foot"><span class="tag tag--brand">Lesson</span><a class="btn btn--sm btn--subtle" href="lesson.html" style="margin-left:auto">Open</a></div>
+          </div>
+        </article>
+        <article class="res-card" data-type="lesson">
+          <div class="res-thumb" style="background:linear-gradient(135deg,#e6effd,var(--brand-tint))"><b>Photosynthesis</b><i></i><i></i><i></i></div>
+          <div class="res-card-body">
+            <h3>Photosynthesis</h3>
+            <small>12 slides &middot; Year 9 Biology &middot; edited 2 days ago</small>
+            <div class="res-card-foot"><span class="tag tag--brand">Lesson</span><a class="btn btn--sm btn--subtle" href="lesson.html" style="margin-left:auto">Open</a></div>
+          </div>
+        </article>
+        <article class="res-card" data-type="worksheet">
+          <div class="res-thumb" style="background:linear-gradient(135deg,var(--accent-soft),#fdeceb)"><b>The Water Cycle &mdash; Activity Sheet</b><i></i><i></i><i></i></div>
+          <div class="res-card-body">
+            <h3>The Water Cycle &mdash; Activity Sheet</h3>
+            <small>8 questions &middot; scaffold &amp; stretch</small>
+            <div class="res-card-foot"><span class="tag tag--amber">Worksheet</span><a class="btn btn--sm btn--subtle" href="lesson.html" style="margin-left:auto">Open</a></div>
+          </div>
+        </article>
+        <article class="res-card" data-type="series">
+          <div class="res-thumb" style="background:linear-gradient(135deg,#e6effd,#ece9fd)"><b>Forces and Motion</b><i></i><i></i><i></i></div>
+          <div class="res-card-body">
+            <h3>Forces and Motion</h3>
+            <small>6 lessons &middot; Year 9 Physics</small>
+            <div class="res-card-foot"><span class="tag tag--sky">Series</span><a class="btn btn--sm btn--subtle" href="lesson.html" style="margin-left:auto">Open</a></div>
+          </div>
+        </article>
+        <article class="res-card" data-type="activity">
+          <div class="res-thumb" style="background:linear-gradient(135deg,#ece9fd,var(--brand-tint))"><b>Odd one out starter</b><i></i><i></i><i></i></div>
+          <div class="res-card-body">
+            <h3>Odd one out starter</h3>
+            <small>5 minutes &middot; whole class retrieval</small>
+            <div class="res-card-foot"><span class="tag tag--violet">Activity</span><a class="btn btn--sm btn--subtle" href="lesson.html" style="margin-left:auto">Open</a></div>
+          </div>
+        </article>
+        <article class="res-card" data-type="worksheet">
+          <div class="res-thumb" style="background:linear-gradient(135deg,var(--accent-soft),var(--brand-tint))"><b>Rock Cycle end-of-topic test</b><i></i><i></i><i></i></div>
+          <div class="res-card-body">
+            <h3>Rock Cycle end-of-topic test</h3>
+            <small>20 questions &middot; with answer key</small>
+            <div class="res-card-foot"><span class="tag tag--amber">Worksheet</span><a class="btn btn--sm btn--subtle" href="lesson.html" style="margin-left:auto">Open</a></div>
+          </div>
+        </article>
+        <article class="res-card" data-type="rubric">
+          <div class="res-thumb" style="background:linear-gradient(135deg,#fdeceb,var(--accent-soft))"><b>Extended writing rubric</b><i></i><i></i><i></i></div>
+          <div class="res-card-body">
+            <h3>Extended writing rubric</h3>
+            <small>4 criteria &middot; Year 8 English</small>
+            <div class="res-card-foot"><span class="tag tag">Rubric</span><a class="btn btn--sm btn--subtle" href="lesson.html" style="margin-left:auto">Open</a></div>
+          </div>
+        </article>
+        <article class="res-card" data-type="series">
+          <div class="res-thumb" style="background:linear-gradient(135deg,var(--brand-tint),#e6effd)"><b>Electricity and Circuits</b><i></i><i></i><i></i></div>
+          <div class="res-card-body">
+            <h3>Electricity and Circuits</h3>
+            <small>5 lessons &middot; Year 7 Physics</small>
+            <div class="res-card-foot"><span class="tag tag--sky">Series</span><a class="btn btn--sm btn--subtle" href="lesson.html" style="margin-left:auto">Open</a></div>
+          </div>
+        </article>
+      </div>
+    </main>
+  </div>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
