@@ -128,6 +128,18 @@
     }, 1400);
   }
 
+  /* ---- Toast ------------------------------------------------------------ */
+  var toastTimer;
+  window.doodleToast = function (message, tone) {
+    var el = document.querySelector("[data-toast]");
+    if (!el) return;
+    el.textContent = message;
+    el.style.background = tone === "warn" ? "var(--sunny)" : tone === "bad" ? "var(--coral)" : "var(--mint)";
+    el.setAttribute("data-show", "true");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { el.setAttribute("data-show", "false"); }, 2600);
+  };
+
   /* ---- Footer year & newsletter ----------------------------------------- */
   document.querySelectorAll("[data-year]").forEach(function (el) {
     el.textContent = new Date().getFullYear();

@@ -1,10 +1,13 @@
-# Doodle Desk — public marketing & subscription site
+# Doodle Desk — classroom whiteboards
 
-A bright, playful public website for the classroom whiteboard suite, in the spirit of
-Classkick and Whiteboard.fi. Static HTML, CSS and vanilla JS — no build step, no
-dependencies, no framework. Drop the folder on any host and it works.
+A bright, playful public website *and* the live classroom app behind it, in the
+spirit of Classkick and Whiteboard.fi: every student gets a whiteboard, the
+teacher sees all of them at once. Static HTML, CSS and vanilla JS — no build
+step, no dependencies, no framework. Drop the folder on any host and it works.
 
 ## Pages
+
+**The public site**
 
 | File | What it is |
 | --- | --- |
@@ -14,6 +17,59 @@ dependencies, no framework. Drop the folder on any host and it works.
 | `demo.html` | A real, working whiteboard — pens, highlighter, eraser, stamps, undo, PNG export |
 | `login.html` | Teacher log in, plus the student "join with a room code" form |
 | `FinalAtt.html` | The existing attendance tracker, linked from the site as a bundled tool |
+
+**The app**
+
+| File | What it is |
+| --- | --- |
+| `dashboard.html` | The teacher's rooms: open one, copy its join link, see who's in it, close it |
+| `room.html` | The live room — every student's board as a thumbnail, class controls, focus view |
+| `board.html` | A student's own board: joins by code, draws, gets the task and the teacher's marks |
+
+## The app, and how the live sync works
+
+The app genuinely runs — across browser tabs, with no server. Try it:
+
+1. Open `login.html`, log in with any valid-looking email, and create a room.
+2. Copy the join link and open it in two or three other tabs, giving each a
+   different name.
+3. Draw in a student tab and watch the thumbnail appear in the teacher's grid.
+
+From the room view a teacher can set the task, freeze every board, clear them,
+filter by who's stuck or finished, and click any board to open it full size and
+draw a hint straight onto it. From a student board you can flag that you're
+stuck or done, and the teacher's marks appear as you work. Undo only ever
+removes your own marks, so a student can't rub out the hint they were just
+given.
+
+**How it fits together**
+
+- `assets/js/board-engine.js` — the drawing core. Marks are stored as data
+  (`{type:"stroke", colour, width, points:[...]}`), not pixels, so undo, replay,
+  thumbnails and sending a board over the wire all work on the same objects.
+  Committed marks are composited onto an offscreen canvas, so a long lesson
+  doesn't get slower with every stroke.
+- `assets/js/board-ui.js` — binds the standard toolbar markup to a board, so the
+  tools behave the same in all three places a board appears.
+- `assets/js/realtime.js` (`DoodleNet`) — rooms and messaging. Rooms live in
+  `localStorage`; each tab's student identity lives in `sessionStorage`, which is
+  what lets one browser hold a whole class. Live updates go over a
+  `BroadcastChannel`, falling back to `storage` events on older browsers.
+
+Messages on the bus: `join`, `leave`, `presence`, `board` (a new thumbnail),
+`status`, `prompt`, `freeze`, `clear-board`, `teacher-mark`, `full-request` /
+`full-reply` (the teacher asking a student's tab for its full board), and
+`room-closed`.
+
+Students publish a small JPEG thumbnail rather than every stroke — cheap to send
+and to store, and it's all the teacher's grid needs. The full board only travels
+when a teacher actually opens it.
+
+**Making it work between real devices** means replacing the transport, not the
+pages: every page talks to `DoodleNet` and nothing else. Swap `send`/`on` for a
+WebSocket connection and the store functions for API calls, and the same messages
+carry the same payloads. Until then it is one browser only — rooms don't leave
+the machine that made them.
 
 ## Running it
 
@@ -117,15 +173,17 @@ card data.
 
 **Real and working:** every page and layout, light/dark mode with the choice remembered,
 the mobile menu, the monthly/yearly switch, plan deep links (`subscribe.html?plan=pro&billing=annual`),
-form validation, the live order summary, and the whiteboard demo (drawing, stamps, undo,
-clear, PNG download — all client-side, nothing uploaded).
+form validation, the live order summary, the whiteboard demo, and the whole app —
+rooms, codes, joining, live thumbnails, status flags, the task banner, freeze, clear,
+and the teacher marking a student's board — across tabs in one browser.
 
 **Placeholder, replace before launch:**
 
 - Payments — demo mode until `CHECKOUT_ENDPOINT` is set (above).
-- Teacher log in (`assets/js/login.js`) — no auth backend; wire up your provider.
-- The live classroom itself — the site sells it and demos a single board; rooms, sync
-  and the teacher's multi-board view are the application, not this website.
+- Teacher log in (`assets/js/login.js`) — any valid-looking email gets in and the
+  name is remembered locally. There is no auth backend; wire up your provider.
+- Cross-device sync — the app is real but confined to one browser (see above).
+  Rooms, boards and student lists never leave the machine that created them.
 - Newsletter sign-up — shows a confirmation, posts nowhere.
 - Testimonials on `index.html` — illustrative copy, marked with an HTML comment. Swap
   for real, permissioned quotes.
@@ -149,9 +207,16 @@ clear, PNG download — all client-side, nothing uploaded).
 ```
 assets/css/site.css       design tokens + every component
 assets/js/config.js       plans, prices, checkout endpoint  ← edit this one
-assets/js/site.js         theme, mobile nav, scroll reveals, confetti
+assets/js/site.js         theme, mobile nav, scroll reveals, confetti, toasts
 assets/js/pricing.js      renders the plan cards, monthly/yearly switch
 assets/js/checkout.js     plan picker, order summary, validation, submit
-assets/js/whiteboard.js   the demo board
 assets/js/login.js        log in + join-a-room forms
+
+assets/js/board-engine.js the drawing core, shared by all three boards
+assets/js/board-ui.js     binds the toolbar markup to a board
+assets/js/realtime.js     rooms, identities and the live message bus
+assets/js/whiteboard.js   the public demo board
+assets/js/dashboard.js    the teacher's room list
+assets/js/room.js         the live room: grid, controls, focus view
+assets/js/student.js      a student's board
 ```

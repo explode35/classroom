@@ -1,10 +1,13 @@
 /* ==========================================================================
-   Doodle Desk — log in & join-a-room
-   Demo mode: both forms validate properly but there is no auth backend yet,
-   so they explain what would happen instead of pretending to sign you in.
+   Doodle Desk — log in & join-a-room (login.html)
+   Teachers land on their dashboard; students go straight to a board.
+   There is no auth server yet, so the teacher form accepts any valid-looking
+   email and remembers the name locally — see README.md.
    ========================================================================== */
 (function () {
   "use strict";
+
+  var net = window.DoodleNet;
 
   function setError(input, message) {
     var field = input.closest(".field");
@@ -15,6 +18,20 @@
     return !message;
   }
 
+  /* Turn "a.okafor@school.edu" into "A. Okafor" for the greeting */
+  function nameFromEmail(email) {
+    return email.split("@")[0]
+      .replace(/[._-]+/g, " ")
+      .trim()
+      .split(/\s+/)
+      .map(function (part) {
+        var word = part.charAt(0).toUpperCase() + part.slice(1);
+        return word.length === 1 ? word + "." : word;
+      })
+      .join(" ")
+      .slice(0, 40);
+  }
+
   /* ---- Teacher login ---------------------------------------------------- */
   var login = document.getElementById("login-form");
   if (login) {
@@ -22,17 +39,20 @@
       e.preventDefault();
       var email = login.elements.email;
       var pass = login.elements.password;
+
       var ok = setError(email, /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email.value.trim())
         ? "" : "Please enter a valid email address.");
       ok = setError(pass, pass.value.length ? "" : "Please enter your password.") && ok;
       if (!ok) return;
 
+      if (net) net.setTeacher(nameFromEmail(email.value.trim()));
+
       var note = document.querySelector("[data-login-note]");
       if (note) {
         note.hidden = false;
-        note.textContent = "Demo mode — there's no account server connected to this site yet. " +
-          "Wire up your auth provider in assets/js/login.js to make this real.";
+        note.textContent = "Opening your rooms…";
       }
+      window.location.href = "dashboard.html";
     });
   }
 
@@ -49,18 +69,17 @@
     join.addEventListener("submit", function (e) {
       e.preventDefault();
       var name = join.elements.nickname;
-      var ok = setError(code, code.value.trim().length >= 5 ? "" : "Room codes are 6–8 characters.");
+
+      var ok = setError(code, code.value.trim().length >= 5 ? "" : "Room codes look like SUN-42B.");
       ok = setError(name, name.value.trim().length >= 2 ? "" : "Pop your first name in.") && ok;
       if (!ok) return;
 
-      var note = document.querySelector("[data-join-note]");
-      if (note) {
-        note.hidden = false;
-        note.innerHTML = "Nice one, <strong>" + name.value.trim().replace(/[<>&]/g, "") +
-          "</strong>! In the live app this drops you straight onto a blank board. " +
-          'Try the <a href="demo.html">demo board</a> in the meantime.';
+      if (net && !net.getRoom(code.value.trim())) {
+        return setError(code, "We can't find a room with that code. Check the board?");
       }
-      if (window.doodleConfetti) window.doodleConfetti(50);
+
+      window.location.href = "board.html?code=" + encodeURIComponent(code.value.trim()) +
+        "&name=" + encodeURIComponent(name.value.trim());
     });
   }
 })();
