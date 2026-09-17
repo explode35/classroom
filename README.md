@@ -83,8 +83,41 @@ python3 -m http.server 8080
 
 Then open <http://localhost:8080/>. Opening `index.html` straight off disk works too.
 
-Deploying is a file copy — GitHub Pages, Netlify, Cloudflare Pages, S3, or any
-web host. There is nothing to build.
+## Deploying
+
+There is nothing to build, so hosting is a file copy. Two routes are set up:
+
+**GitHub Pages** — `.github/workflows/pages.yml` publishes on every push to
+`main` or the working branch. It copies the site (minus `.git`, `.github` and
+`netlify.toml`), adds `.nojekyll`, and hands it to Pages;
+`actions/configure-pages` runs with `enablement: true`, so Pages switches
+itself on the first time it runs. The site lands at
+`https://<owner>.github.io/classroom/`. Every path in the site is relative, so
+serving it from a subdirectory works.
+
+If the `deploy` job fails in a couple of seconds without running a single step,
+it was rejected at the environment gate rather than by anything in the
+workflow. Two settings cause that, both under **Settings → Pages** and
+**Settings → Environments → github-pages**:
+
+- **Source** is *Deploy from a branch*. `actions/deploy-pages` needs it set to
+  *GitHub Actions*.
+- **Deployment branches** for the `github-pages` environment allows only the
+  default branch. Either merge to `main`, or add the working branch there.
+
+**Netlify** — `netlify.toml` publishes the repo root with no build command.
+The quickest setup is to let Netlify pull from GitHub, which needs no CLI and
+redeploys on every push:
+
+1. Netlify → your site → **Project configuration → Build & deploy → Link repository**
+2. Pick `explode35/classroom`, and set the branch to deploy.
+3. Leave the build command empty and the publish directory as `.` —
+   `netlify.toml` already says so.
+
+`netlify deploy --prod` from a checkout works too, if you'd rather push builds
+than have Netlify pull them.
+
+Any other static host works the same way: copy the folder up.
 
 ## Changing the plans and prices
 
