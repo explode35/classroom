@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Water Cycle - Chalkie AI</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%230e7c5a'/><text y='72' x='50' font-size='62' text-anchor='middle' font-family='sans-serif' font-weight='bold' fill='white'>C</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="sidebar-head"><a class="logo" href="index.html"><span class="logo-mark">C</span> Chalkie</a></div>
+    <a class="btn btn--primary btn--block" href="create.html" style="margin-bottom:18px">&#43;&nbsp; Create new</a>
+    <nav>
+      <ul class="side-nav">
+        <li><a href="index.html"><span class="ico">&#9638;</span>Dashboard</a></li>
+        <li><a href="create.html"><span class="ico">&#10022;</span>Create</a></li>
+        <li><a class="is-active" href="library.html"><span class="ico">&#9776;</span>My resources</a></li>
+      </ul>
+      <div class="side-label">This lesson</div>
+      <ul class="side-nav">
+        <li><a href="lesson.html"><span class="ico">&#9642;</span>Slides</a></li>
+        <li><a href="lesson.html"><span class="ico">&#9636;</span>Activity sheet</a></li>
+        <li><a href="lesson.html"><span class="ico">&#9672;</span>Rubric</a></li>
+      </ul>
+    </nav>
+    <div class="usage">
+      <div class="usage-top">AI edits <span>7 / 10 used</span></div>
+      <div class="meter"><i style="width:70%"></i></div>
+      <p>3 AI edits left this week on the Free plan.</p>
+      <a class="btn btn--sm" href="../pricing.html">Upgrade to Pro</a>
+    </div>
+    <div class="side-user"><span class="avatar" style="background:#6c5ce7">AM</span><span><b>Alex Morgan</b><small>Year 8 &middot; Science</small></span></div>
+  </aside>
+
+  <div class="main">
+    <header class="topbar">
+      <h1>The Water Cycle</h1>
+      <span class="crumb">Year 8 Science &middot; 9 slides &middot; saved just now</span>
+      <div class="topbar-actions" style="margin-left:auto">
+        <span data-export-note style="font-size:.84rem;color:var(--brand);opacity:0;transition:opacity .25s ease"></span>
+        <button class="btn btn--sm btn--ghost">&#9654;&nbsp; Present</button>
+        <div class="menu-wrap">
+          <button class="btn btn--sm btn--primary" data-menu-trigger aria-expanded="false">Export &#9662;</button>
+          <div class="menu">
+            <button data-export="Google Slides"><span class="mico" style="background:#f5b300">GS</span><span>Google Slides<small>Fully editable in Drive</small></span></button>
+            <button data-export="PowerPoint"><span class="mico" style="background:#c43e1c">PPT</span><span>PowerPoint<small>Editable .pptx download</small></span></button>
+            <button data-export="PDF"><span class="mico" style="background:#d93025">PDF</span><span>PDF<small>Print-ready handout</small></span></button>
+            <hr>
+            <button data-export="a copy of the link">&#128279;&nbsp;&nbsp;Copy share link</button>
+          </div>
+        </div>
+        <span class="avatar" style="background:#6c5ce7">AM</span>
+      </div>
+    </header>
+
+    <div class="editor">
+      <div class="slide-rail">
+        <div class="rail-head">Slides</div>
+        <button class="thumb is-active">
+          <span class="n">1</span>
+          <span class="mini"><b>The Water Cycle</b><i></i><i></i><i></i></span>
+        </button>
+        <button class="thumb">
+          <span class="n">2</span>
+          <span class="mini"><b>By the end of this lesson you will&hellip;</b><i></i><i></i><i></i></span>
+        </button>
+        <button class="thumb">
+          <span class="n">3</span>
+          <span class="mini"><b>Where does rain come from?</b><i></i><i></i><i></i></span>
+        </button>
+        <button class="thumb">
+          <span class="n">4</span>
+          <span class="mini mini--img"><b>Evaporation</b><i></i><i></i><i></i></span>
+        </button>
+        <button class="thumb">
+          <span class="n">5</span>
+          <span class="mini mini--img"><b>Condensation and precipitation</b><i></i><i></i><i></i></span>
+        </button>
+        <button class="thumb">
+          <span class="n">6</span>
+          <span class="mini"><b>Words for this lesson</b><i></i><i></i><i></i></span>
+        </button>
+        <button class="thumb">
+          <span class="n">7</span>
+          <span class="mini mini--q"><b>Quick check</b><i></i><i></i><i></i></span>
+        </button>
+        <button class="thumb">
+          <span class="n">8</span>
+          <span class="mini"><b>Label the water cycle</b><i></i><i></i><i></i></span>
+        </button>
+        <button class="thumb">
+          <span class="n">9</span>
+          <span class="mini mini--q"><b>Exit ticket</b><i></i><i></i><i></i></span>
+        </button>
+      </div>
+
+      <div class="canvas-wrap">
+        <div class="slide" data-canvas></div>
+        <div class="canvas-tools">
+          <button class="btn btn--sm btn--ghost" data-nav-slide="-1">&#8592; Previous</button>
+          <button class="btn btn--sm btn--ghost" data-nav-slide="1">Next &#8594;</button>
+          <button class="btn btn--sm btn--subtle">&#43; Add slide</button>
+          <button class="btn btn--sm btn--subtle">&#9634; Duplicate</button>
+        </div>
+      </div>
+
+      <aside class="inspector">
+        <div class="insp-tabs">
+          <button class="is-active" data-panel="panel-ai">&#10022; Edit with AI</button>
+          <button data-panel="panel-design">Design</button>
+        </div>
+
+        <div class="insp-panel is-active" id="panel-ai">
+          <div class="chat" data-chat>
+            <div class="bubble bubble--ai"><b>Your lesson is ready.</b> Tell me what to change on any slide in plain English &mdash; I'll rewrite it for you.</div>
+          </div>
+          <div class="suggest">
+            <button>Make this simpler</button>
+            <button>Add an extension task</button>
+            <button>Add key vocabulary</button>
+            <button>Add a check for understanding</button>
+            <button>Make it shorter</button>
+          </div>
+          <form class="chat-input" data-chat-form>
+            <label class="sr-only" for="ai">Ask Chalkie to edit this slide</label>
+            <textarea id="ai" placeholder="e.g. differentiate this for lower ability"></textarea>
+            <button class="chat-send" type="submit" aria-label="Send">&#8593;</button>
+          </form>
+        </div>
+
+        <div class="insp-panel" id="panel-design">
+          <div class="insp-scroll">
+            <div class="insp-group">
+              <h4>Theme</h4>
+              <div class="theme-row">
+                <button class="swatch is-active" style="background:#0e7c5a" data-accent="#0e7c5a" aria-label="Green"></button>
+                <button class="swatch" style="background:#3b82f6" data-accent="#3b82f6" aria-label="Blue"></button>
+                <button class="swatch" style="background:#6c5ce7" data-accent="#6c5ce7" aria-label="Violet"></button>
+                <button class="swatch" style="background:#ef6351" data-accent="#ef6351" aria-label="Coral"></button>
+                <button class="swatch" style="background:#0f1f1a" data-accent="#0f1f1a" aria-label="Charcoal"></button>
+              </div>
+            </div>
+            <div class="insp-group">
+              <h4>Slide layout</h4>
+              <div class="chip-select">
+                <input type="radio" name="layout" id="lay1" checked><label for="lay1">Title &amp; bullets</label>
+                <input type="radio" name="layout" id="lay2"><label for="lay2">Image left</label>
+                <input type="radio" name="layout" id="lay3"><label for="lay3">Two column</label>
+                <input type="radio" name="layout" id="lay4"><label for="lay4">Full image</label>
+              </div>
+            </div>
+            <div class="insp-group">
+              <h4>Lesson settings</h4>
+              <div class="switch-row"><span><b>Show slide numbers</b></span><span class="switch"><input type="checkbox" checked aria-label="Show slide numbers"><i></i></span></div>
+              <div class="switch-row"><span><b>Show timings</b></span><span class="switch"><input type="checkbox" checked aria-label="Show timings"><i></i></span></div>
+              <div class="switch-row"><span><b>Include answer key</b></span><span class="switch"><input type="checkbox" aria-label="Include answer key"><i></i></span></div>
+            </div>
+            <div class="insp-group">
+              <h4>Details</h4>
+              <div class="field"><label for="d-title">Lesson title</label><input class="input" id="d-title" value="The Water Cycle"></div>
+              <div class="field" style="margin-bottom:0"><label for="d-year">Year group</label><select class="select" id="d-year"><option>Year 7</option><option selected>Year 8</option><option>Year 9</option></select></div>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</div>
+
+<script>
+  window.CHALKIE_SLIDES = [
+    { kicker: "Lesson", title: "The Water Cycle", points: ["Year 8 Science", "Lesson 1 of 6", "30 minutes"], foot: "Chalkie" },
+    { kicker: "Learning objectives", title: "By the end of this lesson you will&hellip;", points: ["<strong>Describe</strong> each stage of the water cycle", "<strong>Explain</strong> how energy from the Sun drives the cycle", "<strong>Apply</strong> the cycle to explain where rain comes from"], foot: "Objectives" },
+    { kicker: "Starter", title: "Where does rain come from?", points: ["Discuss with your partner for two minutes", "Write down three words you would use to explain it", "Be ready to share one idea with the class"], foot: "Starter &middot; 5 minutes" },
+    { kicker: "Explanation", title: "Evaporation", points: ["The Sun heats water in oceans, rivers and lakes", "Liquid water gains energy and becomes water vapour", "The vapour rises into the atmosphere", "This process is called <strong>evaporation</strong>"], foot: "Explanation &middot; 6 minutes" },
+    { kicker: "Explanation", title: "Condensation and precipitation", points: ["As vapour rises it cools and turns back into droplets", "Millions of droplets gather to form clouds", "When droplets grow heavy they fall as precipitation", "Precipitation can be rain, snow, sleet or hail"], foot: "Explanation &middot; 6 minutes" },
+    { kicker: "Key vocabulary", title: "Words for this lesson", points: ["<strong>Evaporation</strong> &mdash; liquid water turning into vapour", "<strong>Condensation</strong> &mdash; vapour cooling back into droplets", "<strong>Precipitation</strong> &mdash; water falling from clouds", "<strong>Collection</strong> &mdash; water gathering in rivers and seas"], foot: "Vocabulary" },
+    { kicker: "Check for understanding", title: "Quick check", points: ["What provides the energy for the water cycle?", "What happens to water vapour as it rises and cools?", "Name two forms of precipitation", "Why does the water cycle never run out of water?"], foot: "AfL &middot; 4 minutes" },
+    { kicker: "Main task", title: "Label the water cycle", points: ["Work in pairs to label the diagram on your sheet", "Add one sentence explaining each stage", "<strong>Stretch:</strong> explain what happens to run-off"], foot: "Main task &middot; 12 minutes" },
+    { kicker: "Plenary", title: "Exit ticket", points: ["Write one sentence explaining the water cycle to a Year 4 pupil", "Hand it to me on your way out"], foot: "Plenary &middot; 5 minutes" }
+  ];
+</script>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Create a lesson - Chalkie AI</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%230e7c5a'/><text y='72' x='50' font-size='62' text-anchor='middle' font-family='sans-serif' font-weight='bold' fill='white'>C</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <a class="logo" href="index.html"><span class="logo-mark">C</span> Chalkie</a>
+    </div>
+    <a class="btn btn--primary btn--block" href="create.html" style="margin-bottom:18px">&#43;&nbsp; Create new</a>
+    <nav>
+      <ul class="side-nav">
+        <li><a href="index.html"><span class="ico">▦</span>Dashboard</a></li>
+        <li><a class="is-active" href="create.html"><span class="ico">✦</span>Create</a></li>
+        <li><a href="library.html"><span class="ico">☰</span>My resources</a></li>
+      </ul>
+      <div class="side-label">Explore</div>
+      <ul class="side-nav">
+        <li><a href="library.html"><span class="ico">◱</span>Resource library</a></li>
+        <li><a href="library.html"><span class="ico">◑</span>Themes</a></li>
+        <li><a href="library.html"><span class="ico">⚙</span>Settings</a></li>
+      </ul>
+    </nav>
+    <div class="usage">
+      <div class="usage-top">Free plan <span>3 / 5 used</span></div>
+      <div class="meter"><i style="width:60%"></i></div>
+      <p>2 resource generations left this week. Resets on Monday.</p>
+      <a class="btn btn--sm" href="../pricing.html">Upgrade to Pro</a>
+    </div>
+    <div class="side-user">
+      <span class="avatar" style="background:#6c5ce7">AM</span>
+      <span><b>Alex Morgan</b><small>Year 8 &middot; Science</small></span>
+    </div>
+  </aside>
+  <div class="main">
+    <header class="topbar">
+      <h1>Create</h1>
+      <span class="crumb"><a href="index.html">Dashboard</a> / Create a lesson</span>
+      <div class="search"><span>&#9906;</span><input type="search" placeholder="Search your resources" aria-label="Search your resources"></div>
+      <div class="topbar-actions"><a class="btn btn--sm btn--subtle" href="index.html">Cancel</a></div>
+    </header>
+    <main class="content">
+      <div class="page-head">
+        <h1>Create a lesson</h1>
+        <p>Choose your topic, year group and curriculum &mdash; Chalkie writes the rest in under 30 seconds.</p>
+      </div>
+
+      <form data-generate>
+      <div class="grid create-layout">
+        <div class="panel">
+          <div class="panel-body">
+            <div class="field">
+              <label for="topic">Lesson topic <span class="hint">What are you teaching?</span></label>
+              <input class="input" id="topic" value="The water cycle" placeholder="e.g. The water cycle">
+            </div>
+            <div class="field-row">
+              <div class="field">
+                <label for="subject">Subject</label>
+                <select class="select" id="subject">
+                  <option>Science</option><option>English</option><option>Mathematics</option>
+                  <option>History</option><option>Geography</option><option>Computing</option><option>Art &amp; Design</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="year">Year group / grade</label>
+                <select class="select" id="year">
+                  <option>Year 7 / Grade 6</option><option selected>Year 8 / Grade 7</option>
+                  <option>Year 9 / Grade 8</option><option>Year 10 / Grade 9</option><option>Year 11 / Grade 10</option>
+                </select>
+              </div>
+            </div>
+            <div class="field-row">
+              <div class="field">
+                <label for="region">Region</label>
+                <select class="select" id="region"><option>United Kingdom</option><option>United States</option><option>Australia</option><option>Canada</option><option>International</option></select>
+              </div>
+              <div class="field">
+                <label for="curric">Curriculum <span class="hint">Pro</span></label>
+                <select class="select" id="curric"><option>National Curriculum</option><option>AQA</option><option>Edexcel</option><option>Common Core</option><option>NGSS</option><option>IB</option></select>
+              </div>
+            </div>
+            <div class="field">
+              <label for="length">Lesson length</label>
+              <div class="chip-select">
+                <input type="radio" name="length" id="l30" checked><label for="l30">30 minutes</label>
+                <input type="radio" name="length" id="l50"><label for="l50">50 minutes</label>
+                <input type="radio" name="length" id="l60"><label for="l60">60 minutes</label>
+                <input type="radio" name="length" id="l90"><label for="l90">90 minutes</label>
+              </div>
+            </div>
+            <div class="field" style="margin-bottom:0">
+              <label for="notes">Additional instructions <span class="hint">Optional</span></label>
+              <textarea class="textarea" id="notes" placeholder="e.g. mixed-ability class, include a practical demonstration, link to last lesson on evaporation"></textarea>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-head"><h2>Include in this lesson</h2></div>
+          <div class="panel-body" style="padding:6px 22px 22px">
+            <div class="switch-row"><span><b>Learning objectives</b><small>Written as student-facing outcomes</small></span><span class="switch"><input type="checkbox" checked aria-label="Learning objectives"><i></i></span></div>
+            <div class="switch-row"><span><b>Key vocabulary</b><small>Tier-two terms with definitions</small></span><span class="switch"><input type="checkbox" checked aria-label="Key vocabulary"><i></i></span></div>
+            <div class="switch-row"><span><b>Learning activities</b><small>Starter, main task and plenary</small></span><span class="switch"><input type="checkbox" checked aria-label="Learning activities"><i></i></span></div>
+            <div class="switch-row"><span><b>Checks for understanding</b><small>Questions embedded through the deck</small></span><span class="switch"><input type="checkbox" checked aria-label="Checks for understanding"><i></i></span></div>
+            <div class="switch-row"><span><b>Images</b><small>Relevant diagrams and photographs</small></span><span class="switch"><input type="checkbox" checked aria-label="Images"><i></i></span></div>
+            <div class="switch-row"><span><b>YouTube videos</b><small>Suggested clips embedded in slides</small></span><span class="switch"><input type="checkbox" aria-label="YouTube videos"><i></i></span></div>
+            <div class="switch-row"><span><b>Differentiation</b><small>Scaffold and stretch versions</small></span><span class="switch"><input type="checkbox" checked aria-label="Differentiation"><i></i></span></div>
+            <button class="btn btn--primary btn--lg btn--block" style="margin-top:20px" type="submit">&#10022;&nbsp; Generate lesson</button>
+            <p style="font-size:.79rem;color:var(--ink-mute);text-align:center;margin:12px 0 0">Uses 1 of your 2 remaining generations</p>
+          </div>
+        </div>
+      </div>
+      </form>
+    </main>
+  </div>
+</div>
+<div class="overlay">
+  <div class="overlay-card">
+    <div class="spinner"></div>
+    <h2>Building your lesson</h2>
+    <p style="color:var(--ink-mute);font-size:.92rem">The water cycle &middot; Year 8 Science</p>
+    <div class="gen-steps">
+      <div class="gen-step"><span class="dot"></span> Reading the curriculum standards</div>
+      <div class="gen-step"><span class="dot"></span> Writing learning objectives and vocabulary</div>
+      <div class="gen-step"><span class="dot"></span> Structuring 9 slides</div>
+      <div class="gen-step"><span class="dot"></span> Adding activities and checks for understanding</div>
+    </div>
+  </div>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

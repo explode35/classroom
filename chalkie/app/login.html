@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Login - Chalkie AI</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%230e7c5a'/><text y='72' x='50' font-size='62' text-anchor='middle' font-family='sans-serif' font-weight='bold' fill='white'>C</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<div class="auth">
+  <div class="auth-form-side">
+    <a class="logo logo--dark" href="../index.html"><span class="logo-mark">C</span> Chalkie</a>
+    <div class="auth-inner">
+      <h1>Welcome back</h1>
+      <p>Log in to pick up where you left off.</p>
+      <div class="oauth">
+        <button type="button"><span class="g" style="background:#4285f4">G</span> Continue with Google</button>
+        <button type="button"><span class="g" style="background:#0078d4">M</span> Continue with Microsoft</button>
+      </div>
+      <div class="divider">or</div>
+      <form onsubmit="event.preventDefault();window.location.href='index.html'">
+        <div class="field">
+          <label for="email">School email</label>
+          <input class="input" type="email" id="email" placeholder="you@school.org" autocomplete="email">
+        </div>
+        <div class="field">
+          <label for="pw">Password <a class="forgot" href="#">Forgot password?</a></label>
+          <input class="input" type="password" id="pw" placeholder="Enter your password" autocomplete="current-password">
+        </div>
+        <button class="btn btn--primary btn--lg btn--block" type="submit">Log in</button>
+      </form>
+      <p class="auth-alt">New to Chalkie? <a href="register.html">Create a free account</a></p>
+    </div>
+    <div class="auth-foot">
+      <a href="../index.html">&#8592; Back to chalkie.ai</a>
+      <a href="../index.html">Privacy</a>
+      <a href="../index.html">Terms</a>
+      <a href="../index.html">Help</a>
+    </div>
+  </div>
+
+  <div class="auth-brand-side">
+    <h2>Lessons in seconds, not evenings.</h2>
+    <p>Chalkie generates complete, curriculum-aligned lessons, worksheets and activities &mdash; built with educators.</p>
+    <ul class="auth-points">
+      <li><span class="tick">&#10003;</span> Curriculum-aligned lessons in under 30 seconds</li>
+      <li><span class="tick">&#10003;</span> Worksheets, activities, rubrics and full units</li>
+      <li><span class="tick">&#10003;</span> Export to Google Slides, PowerPoint and PDF</li>
+    </ul>
+    <figure class="auth-quote">
+      <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p>"Chalkie is absolutely amazing and has made my life as a teacher so much easier. I genuinely wish I had this app when I started my career as an Educator!"</p>
+      <footer><span class="avatar" style="background:rgba(255,255,255,.22)">HM</span><span><b>Hannah M.</b><small>Primary Teacher</small></span></footer>
+    </figure>
+  </div>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

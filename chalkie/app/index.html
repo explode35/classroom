@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dashboard - Chalkie AI</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%230e7c5a'/><text y='72' x='50' font-size='62' text-anchor='middle' font-family='sans-serif' font-weight='bold' fill='white'>C</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <a class="logo" href="index.html"><span class="logo-mark">C</span> Chalkie</a>
+    </div>
+    <a class="btn btn--primary btn--block" href="create.html" style="margin-bottom:18px">&#43;&nbsp; Create new</a>
+    <nav>
+      <ul class="side-nav">
+        <li><a class="is-active" href="index.html"><span class="ico">▦</span>Dashboard</a></li>
+        <li><a href="create.html"><span class="ico">✦</span>Create</a></li>
+        <li><a href="library.html"><span class="ico">☰</span>My resources</a></li>
+      </ul>
+      <div class="side-label">Explore</div>
+      <ul class="side-nav">
+        <li><a href="library.html"><span class="ico">◱</span>Resource library</a></li>
+        <li><a href="library.html"><span class="ico">◑</span>Themes</a></li>
+        <li><a href="library.html"><span class="ico">⚙</span>Settings</a></li>
+      </ul>
+    </nav>
+    <div class="usage">
+      <div class="usage-top">Free plan <span>3 / 5 used</span></div>
+      <div class="meter"><i style="width:60%"></i></div>
+      <p>2 resource generations left this week. Resets on Monday.</p>
+      <a class="btn btn--sm" href="../pricing.html">Upgrade to Pro</a>
+    </div>
+    <div class="side-user">
+      <span class="avatar" style="background:#6c5ce7">AM</span>
+      <span><b>Alex Morgan</b><small>Year 8 &middot; Science</small></span>
+    </div>
+  </aside>
+  <div class="main">
+    <header class="topbar">
+      <h1>Dashboard</h1>
+      
+      <div class="search"><span>&#9906;</span><input type="search" placeholder="Search your resources" aria-label="Search your resources"></div>
+      <div class="topbar-actions"><button class="icon-btn" aria-label="Notifications">&#9788;</button><span class="avatar" style="background:#6c5ce7">AM</span></div>
+    </header>
+    <main class="content">
+      <div class="page-head">
+        <h1>Good afternoon, Alex</h1>
+        <p>What are you planning today? You have 2 free generations left this week.</p>
+      </div>
+
+      <div class="banner">
+        <span>&#9889;</span>
+        <span>You're on the Free plan &mdash; upgrade to Pro for curriculum alignment, YouTube support and higher limits.</span>
+        <a class="btn btn--sm btn--ghost" href="../pricing.html">See plans</a>
+      </div>
+
+      <div class="grid grid-4" style="margin-bottom:34px">
+        <a class="create-card" href="create.html">
+          <div class="create-ico">&#9642;</div>
+          <h3>Single lesson</h3>
+          <p>A full slideshow with objectives, vocabulary and activities in under 30 seconds.</p>
+        </a>
+        <a class="create-card" href="create.html">
+          <div class="create-ico create-ico--sky">&#9776;</div>
+          <h3>Lesson series</h3>
+          <p>A connected sequence of lessons covering a whole topic or term.</p>
+        </a>
+        <a class="create-card" href="create.html">
+          <div class="create-ico create-ico--amber">&#9636;</div>
+          <h3>Activity sheet</h3>
+          <p>Printable worksheets, starters, homework and knowledge checks.</p>
+        </a>
+        <a class="create-card" href="create.html">
+          <div class="create-ico create-ico--coral">&#9672;</div>
+          <h3>Rubric</h3>
+          <p>Level-appropriate marking criteria for any task you set.</p>
+        </a>
+      </div>
+
+      <section class="panel" style="margin-bottom:26px">
+        <div class="panel-head">
+          <h2>Continue where you left off</h2>
+          <a class="btn btn--sm btn--subtle" href="library.html">View all</a>
+        </div>
+        <div class="panel-body" style="padding:14px">
+          <div class="res-list">
+            <a class="res-row" href="lesson.html">
+              <span class="res-ico" style="background:var(--brand-tint);color:var(--brand-dark)">&#9642;</span>
+              <span><b>The Water Cycle</b><small>9 slides &middot; Year 8 Science</small></span>
+              <span class="res-meta"><span class="tag tag--brand">Lesson</span><span>Edited 4 minutes ago</span></span>
+            </a>
+            <a class="res-row" href="lesson.html">
+              <span class="res-ico" style="background:var(--accent-soft);color:#b07d00">&#9636;</span>
+              <span><b>The Water Cycle &mdash; Activity Sheet</b><small>8 questions &middot; scaffold &amp; stretch</small></span>
+              <span class="res-meta"><span class="tag tag--amber">Worksheet</span><span>Edited yesterday</span></span>
+            </a>
+            <a class="res-row" href="lesson.html">
+              <span class="res-ico" style="background:#e6effd;color:var(--sky)">&#9776;</span>
+              <span><b>Forces and Motion</b><small>6 lessons &middot; Year 9 Physics</small></span>
+              <span class="res-meta"><span class="tag tag--sky">Series</span><span>Edited 2 days ago</span></span>
+            </a>
+            <a class="res-row" href="lesson.html">
+              <span class="res-ico" style="background:#ece9fd;color:var(--violet)">&#10022;</span>
+              <span><b>Photosynthesis starter &mdash; odd one out</b><small>5 minutes &middot; whole class</small></span>
+              <span class="res-meta"><span class="tag tag--violet">Activity</span><span>Edited 3 days ago</span></span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head"><h2>This week</h2></div>
+        <div class="panel-body">
+          <div class="grid grid-3">
+            <div><b style="font-family:var(--font-display);font-size:1.9rem;color:var(--ink);display:block;line-height:1">3</b><small style="color:var(--ink-mute)">Resources created</small></div>
+            <div><b style="font-family:var(--font-display);font-size:1.9rem;color:var(--ink);display:block;line-height:1">7</b><small style="color:var(--ink-mute)">AI edits used of 10</small></div>
+            <div><b style="font-family:var(--font-display);font-size:1.9rem;color:var(--ink);display:block;line-height:1">5.5 hrs</b><small style="color:var(--ink-mute)">Estimated planning time saved</small></div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
