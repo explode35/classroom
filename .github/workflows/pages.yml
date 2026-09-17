@@ -30,6 +30,10 @@ jobs:
     steps:
       - name: Check out the repository
         uses: actions/checkout@v4
+        with:
+          # git archive below needs the real history, not a detached blob-less
+          # checkout, so keep the default full-tree fetch.
+          fetch-depth: 1
 
       - name: Configure Pages
         # enablement: true turns Pages on the first time this runs, so the
@@ -41,16 +45,13 @@ jobs:
       - name: Assemble the site
         run: |
           mkdir -p _site
-          rsync -a \
-            --exclude='.git' \
-            --exclude='.github' \
-            --exclude='_site' \
-            --exclude='netlify.toml' \
-            --exclude='node_modules' \
-            ./ _site/
+          # git archive publishes exactly what is committed — no stray local
+          # files, no .git — and needs nothing installed beyond tar.
+          git archive HEAD | tar -x -C _site
+          rm -rf _site/.github _site/netlify.toml _site/.gitignore
           # Stop Pages running the files through Jekyll
           touch _site/.nojekyll
-          echo "Publishing:" && ls -1 _site
+          echo "Publishing:" && ls -1a _site
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
